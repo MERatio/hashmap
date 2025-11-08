@@ -34,6 +34,18 @@ class HashMap {
     }
   }
 
+  #getKeysOrValues(keyOrValue) {
+    const arr = [];
+    for (let i = 0; i < this.#capacity; i++) {
+      let cur = this.#buckets[i];
+      while (cur !== null) {
+        arr.push(cur[keyOrValue]);
+        cur = cur.nextNode;
+      }
+    }
+    return arr;
+  }
+
   set(key, value) {
     if (typeof key !== 'string') {
       throw new TypeError('HashMap only supports string keys.');
@@ -134,15 +146,11 @@ class HashMap {
   }
 
   keys() {
-    const keysArr = [];
-    for (let i = 0; i < this.#capacity; i++) {
-      let cur = this.#buckets[i];
-      while (cur !== null) {
-        keysArr.push(cur.key);
-        cur = cur.nextNode;
-      }
-    }
-    return keysArr;
+    return this.#getKeysOrValues('key');
+  }
+
+  values() {
+    return this.#getKeysOrValues('value');
   }
 
   clear() {
