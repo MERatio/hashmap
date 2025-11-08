@@ -1,9 +1,11 @@
 import Node from './Node.js';
 
+const CAPACITY = 16;
+
 class HashMap {
   #loadFactor = 0.75;
-  #capacity = 16;
-  #buckets = new Array(16).fill(null);
+  #capacity = CAPACITY;
+  #buckets = new Array(this.#capacity).fill(null);
   #size = 0;
 
   #hash(key, capacity) {
@@ -129,6 +131,12 @@ class HashMap {
 
   length() {
     return this.#size;
+  }
+
+  clear() {
+    this.#capacity = CAPACITY;
+    this.#buckets = new Array(this.#capacity).fill(null);
+    this.#size = 0;
   }
 
   print() {

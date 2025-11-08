@@ -44,3 +44,8 @@ test.print();
 
 // Test .length()
 console.log('Length', test.length());
+
+// Test .clear()
+test.clear();
+console.log('--- After clear ---');
+test.print();
