@@ -29,3 +29,8 @@ test.print();
 console.log('Get apple', test.get('apple'));
 console.log('Get lion', test.get('lion'));
 console.log('Get nothing', test.get('nothing'));
+
+// Test .has()
+console.log('Has apple', test.has('apple'));
+console.log('Has lion', test.has('lion'));
+console.log('Has nothing', test.has('nothing'));

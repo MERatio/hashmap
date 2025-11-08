@@ -82,6 +82,18 @@ class HashMap {
     return null;
   }
 
+  has(key) {
+    const hashCode = this.#hash(key, this.#capacity);
+    let cur = this.#buckets[hashCode];
+    while (cur !== null) {
+      if (cur.key === key) {
+        return true;
+      }
+      cur = cur.nextNode;
+    }
+    return false;
+  }
+
   print() {
     console.log('--- HashMap Debug ---');
     console.log(`Size: ${this.#size}, Capacity: ${this.#capacity}`);
