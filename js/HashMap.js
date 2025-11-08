@@ -94,6 +94,39 @@ class HashMap {
     return false;
   }
 
+  remove(key) {
+    const hashCode = this.#hash(key, this.#capacity);
+    const head = this.#buckets[hashCode];
+
+    // If the bucket is empty.
+    if (head === null) {
+      return false;
+    }
+
+    // If the node to be removed is the head.
+    if (head.key === key) {
+      this.#buckets[hashCode] = head.nextNode;
+      this.#size--;
+      return true;
+    }
+
+    // Traverse link list.
+    let prev = head;
+    let cur = head.nextNode;
+    while (cur !== null) {
+      if (cur.key === key) {
+        prev.nextNode = cur.nextNode;
+        this.#size--;
+        return true;
+      }
+      prev = cur;
+      cur = cur.nextNode;
+    }
+
+    // No key found.
+    return false;
+  }
+
   print() {
     console.log('--- HashMap Debug ---');
     console.log(`Size: ${this.#size}, Capacity: ${this.#capacity}`);
