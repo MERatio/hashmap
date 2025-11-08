@@ -41,3 +41,6 @@ console.log('Remove apple', test.remove('apple'));
 console.log('Remove lion', test.remove('lion'));
 console.log('Remove nothing', test.has('nothing'));
 test.print();
+
+// Test .length()
+console.log('Length', test.length());

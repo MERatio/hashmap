@@ -127,6 +127,10 @@ class HashMap {
     return false;
   }
 
+  length() {
+    return this.#size;
+  }
+
   print() {
     console.log('--- HashMap Debug ---');
     console.log(`Size: ${this.#size}, Capacity: ${this.#capacity}`);
