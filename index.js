@@ -26,6 +26,7 @@ test.set('apple', 'UPDATED!!!');
 test.set('lion', 'UPDATED!!!');
 test.print();
 
+// Test .get()
 console.log('Get apple', test.get('apple'));
 console.log('Get lion', test.get('lion'));
 console.log('Get nothing', test.get('nothing'));
