@@ -45,6 +45,9 @@ test.print();
 // Test .length()
 console.log('Length', test.length());
 
+// Test .keys()
+console.log('Keys', test.keys());
+
 // Test .clear()
 test.clear();
 console.log('--- After clear ---');

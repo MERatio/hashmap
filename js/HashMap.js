@@ -133,6 +133,18 @@ class HashMap {
     return this.#size;
   }
 
+  keys() {
+    const keysArr = [];
+    for (let i = 0; i < this.#capacity; i++) {
+      let cur = this.#buckets[i];
+      while (cur !== null) {
+        keysArr.push(cur.key);
+        cur = cur.nextNode;
+      }
+    }
+    return keysArr;
+  }
+
   clear() {
     this.#capacity = CAPACITY;
     this.#buckets = new Array(this.#capacity).fill(null);
